@@ -1,11 +1,11 @@
-package com.evaluation.dp;
+package com.evaluation.dp.service;
 
 import com.evaluation.dp.service.ApiServicePokemon;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiClient {
+public class PokemonApiService {
 
     private static final String BASE_URL = "https://pokeapi.co/api/v2/";
 

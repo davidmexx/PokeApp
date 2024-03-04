@@ -1,4 +1,4 @@
-package com.evaluation.dp;
+package com.evaluation.dp.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.evaluation.dp.service.PokemonApiService;
+import com.evaluation.dp.R;
 import com.evaluation.dp.adapter.PokemonAbilityAdapter;
 import com.evaluation.dp.model.Abilities;
 import com.evaluation.dp.model.PokemonDetailResponse;
@@ -58,7 +60,7 @@ public class PokemonDetailActivity extends AppCompatActivity {
     }
 
     private void getDetailPokemon(int numberPokemon) {
-        ApiServicePokemon apiServicePokemon = ApiClient.getApiservicePokemon();
+        ApiServicePokemon apiServicePokemon = PokemonApiService.getApiservicePokemon();
         Call<PokemonDetailResponse> call = apiServicePokemon.getDetailsPokemon(numberPokemon);
 
         call.enqueue(new Callback<PokemonDetailResponse>() {

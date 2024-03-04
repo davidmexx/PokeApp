@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Dp"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.activities.LoginActivity"
             android:exported="true"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -24,11 +24,11 @@
         </intent-filter> /></activity>
 
         <activity
-            android:name=".PokemonDetailActivity"
+            android:name=".ui.activities.PokemonDetailActivity"
             android:exported="false"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="false">
 
         </activity>

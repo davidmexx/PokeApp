@@ -33,7 +33,6 @@ public class PokemonAbilityAdapter extends RecyclerView.Adapter<PokemonAbilityAd
     @Override
     public void onBindViewHolder(@NonNull PokemonAbilityAdapter.ViewHolder holder, int position) {
         Abilities abilities = this.abilities.get(position);
-        Log.d("prueba", "onBindViewHolder: " + abilities.getAbility().getName());
         holder.tvabilityName.setText(""+abilities.getAbility().getName());
         holder.tvIsHidden.setText(abilities.getIs_hidden() ? "está oculta" : "está visible");
         holder.tvSlot.setText("Ranura " + abilities.getSlot());

@@ -1,4 +1,4 @@
-package com.evaluation.dp;
+package com.evaluation.dp.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.evaluation.dp.R;
 
 public class LoginActivity extends AppCompatActivity {
 

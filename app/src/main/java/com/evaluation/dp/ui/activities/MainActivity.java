@@ -1,4 +1,4 @@
-package com.evaluation.dp;
+package com.evaluation.dp.ui.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -13,6 +13,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.evaluation.dp.service.PokemonApiService;
+import com.evaluation.dp.R;
 import com.evaluation.dp.adapter.PokemonAdapter;
 import com.evaluation.dp.model.Pokemon;
 import com.evaluation.dp.model.PokemonResponse;
@@ -65,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
 
-        // Cambia el texto del título de la ActionBar
         if (actionBar != null) {
             actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fabd1a")));
             if(getIntent().hasExtra("fullName")) {
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getPokemonData(int offset) {
-        ApiServicePokemon apiServicePokemon = ApiClient.getApiservicePokemon();
+        ApiServicePokemon apiServicePokemon = PokemonApiService.getApiservicePokemon();
         Call<PokemonResponse> call = apiServicePokemon.getListPokemon(20,offset);
         call.enqueue(new Callback<PokemonResponse>() {
             @Override
@@ -103,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<PokemonResponse> call, Throwable t) {
                 loading = true;
-                Log.d("prueba", "onFailure: " +t);
+                Log.d("error", "onFailure: " +t);
 
             }
         });

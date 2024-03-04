@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#343d64"
-        android:padding="16dp">
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/tvPokemonName"
@@ -21,6 +21,8 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/white"
             android:textStyle="bold"
+            android:autoSizeTextType="uniform"
+            android:maxLines="1"
             android:textAllCaps="true"/>
 
         <ImageView
