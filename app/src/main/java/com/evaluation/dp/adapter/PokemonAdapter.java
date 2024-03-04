@@ -1,20 +1,29 @@
-package com.evaluation.dp;
+package com.evaluation.dp.adapter;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import com.bumptech.glide.Glide;
+import com.evaluation.dp.R;
+import com.evaluation.dp.model.Pokemon;
+
+import java.util.ArrayList;
 
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHolder> {
 
-    private List<Pokemon> pokemonList;
+    private ArrayList<Pokemon> pokemonList;
     private OnItemClickListener onItemClickListener;
-    public PokemonAdapter(List<Pokemon> pokemonList) {
+    private Context context;
+    public PokemonAdapter(ArrayList<Pokemon> pokemonList, Context context) {
+        this.context = context;
         this.pokemonList = pokemonList;
     }
 
@@ -38,7 +47,11 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
         Pokemon pokemon = pokemonList.get(position);
 
         holder.tvPokemonName.setText(pokemon.getName());
-        holder.tvPokemonUrl.setText(pokemon.getUrl());
+        Glide.with(holder.itemView.getContext())
+                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+pokemon.getNumber() +".png")
+                .placeholder(R.drawable.ic_launcher_foreground)
+                .error(R.drawable.ic_launcher_background)
+                .into(holder.ivPokemonImage);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,16 +69,18 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvPokemonName;
-        TextView tvPokemonUrl;
+        ImageView ivPokemonImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvPokemonName = itemView.findViewById(R.id.tvPokemonName);
-            tvPokemonUrl = itemView.findViewById(R.id.tvPokemonUrl);
+            ivPokemonImage = itemView.findViewById(R.id.ivPokemonImage);
         }
     }
 
-    public void setPokemonList(List<Pokemon> pokemonList) {
-        this.pokemonList = pokemonList;
+    public void setPokemonList(ArrayList<Pokemon> pokemonList) {
+
+        this.pokemonList.addAll(pokemonList);
+        notifyDataSetChanged();
     }
 }

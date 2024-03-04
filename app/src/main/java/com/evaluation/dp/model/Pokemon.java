@@ -1,9 +1,19 @@
-package com.evaluation.dp;
+package com.evaluation.dp.model;
 
 public class Pokemon {
 
     private String name;
     private String url;
+    private int number;
+
+    public int getNumber() {
+        String[] urlParts = url.split("/");
+        return Integer.parseInt(urlParts[urlParts.length -1 ]);
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
 
     public String getName() {
         return name;

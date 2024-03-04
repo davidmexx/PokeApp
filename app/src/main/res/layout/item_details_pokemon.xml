@@ -2,19 +2,34 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp"
-    >
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
 
     <TextView
-        android:id="@+id/tvbaseExperience"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvabilityName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"/>
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        android:layout_marginEnd="8dp"/>
 
     <TextView
-        android:id="@+id/tvPokemonUrl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/tvIsHidden"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:textColor="#555555"
+        android:layout_marginEnd="8dp"/>
 
+    <TextView
+        android:id="@+id/tvSlot"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:textColor="#555555"/>
 </LinearLayout>

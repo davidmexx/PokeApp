@@ -1,24 +1,22 @@
-package com.evaluation.dp;
+package com.evaluation.dp.model;
 
+import com.evaluation.dp.model.Pokemon;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class PokeApi {
-    @SerializedName("count")
+public class PokemonResponse {
     private int count;
-    @SerializedName("next")
     private String next;
-    @SerializedName("previous")
     private String previous;
-    @SerializedName("results")
-    private List <Pokemon> results;
+    private ArrayList <Pokemon> results;
 
-    public List<Pokemon> getResults() {
+    public ArrayList<Pokemon> getResults() {
         return results;
     }
 
-    public void setResults(List<Pokemon> results) {
+    public void setResults(ArrayList<Pokemon> results) {
         this.results = results;
     }
 
