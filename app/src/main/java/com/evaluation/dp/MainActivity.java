@@ -1,12 +1,15 @@
 package com.evaluation.dp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -60,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ActionBar actionBar = getSupportActionBar();
+
+        // Cambia el texto del título de la ActionBar
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#fabd1a")));
+            if(getIntent().hasExtra("fullName")) {
+                actionBar.setTitle("Bienvenido " + getIntent().getStringExtra("fullName"));
+            }
+        }
+
+
         loading = true;
         offset = 0;
         getPokemonData(offset);
@@ -96,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openPokemonDetails(int number, String pokemonName) {
-        Intent intent = new Intent(MainActivity.this, PokemonDetail.class);
+        Intent intent = new Intent(MainActivity.this, PokemonDetailActivity.class);
         intent.putExtra("number", number);
         intent.putExtra("pokemonName", pokemonName);
         startActivity(intent);

@@ -5,13 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.evaluation.dp.adapter.PokemonAbilityAdapter;
-import com.evaluation.dp.adapter.PokemonAdapter;
 import com.evaluation.dp.model.Abilities;
 import com.evaluation.dp.model.PokemonDetailResponse;
 import com.evaluation.dp.service.ApiServicePokemon;
@@ -22,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PokemonDetail extends AppCompatActivity {
+public class PokemonDetailActivity extends AppCompatActivity {
 
     private TextView tvPokemonNameDetail, tvbaseExperience,tvHeight, tvabilities;
     private ImageView ivPokemonDetailImage;

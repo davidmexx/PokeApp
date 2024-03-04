@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    android:background="#FFE5E5E5"
-    tools:context=".PokemonDetail">
+    android:background="#29304f"
+    tools:context=".PokemonDetailActivity">
 
     <TextView
         android:id="@+id/tvPokemonNameDetail"
@@ -19,15 +19,16 @@
         android:maxLines="1"
         android:text="POKEMON NAME"
         android:textSize="30sp"
-        android:textColor="#FF004D40"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivPokemonDetailImage"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:background="@drawable/pokeball"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="EXPERIENCIA BASE"
-        android:textColor="#FF004D40"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivPokemonDetailImage" />
@@ -50,7 +51,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="123"
-        android:textColor="#FF009688"
+        android:textColor="#f8bc17"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvBaseExperienceTitle" />
@@ -61,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="ALTURA"
-        android:textColor="#FF004D40"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvbaseExperience" />
@@ -71,7 +72,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="1.2m"
-        android:textColor="#FF009688"
+        android:textColor="#f8bc17"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHeightTitle" />
@@ -82,18 +83,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="HABILIDADES"
-        android:textColor="#FF004D40"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHeight" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvAbilitiesList"
+    <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="#f8bc17"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAbilitiesTitle"
-        android:background="#FFD7CCC8" />
+        app:layout_constraintTop_toBottomOf="@id/tvAbilitiesTitle">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAbilitiesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
